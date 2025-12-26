@@ -12,18 +12,20 @@ import java.io.IOException;
 
 public class CounterTest {
 
+    /**
+     * Test counting characters, words, and lines.
+     * @throws IOException
+     */
     @Test
     public void testCountCharactersWordsAndLines() throws IOException {
-        String content = "Esta frase\nes un ejemplo para\nel test de recuento.\n";
+        String content = "Esta frase\nes un ejemplo\t para\nel test de recuento.\n";
         BufferedReader reader = new BufferedReader(new StringReader(content));
         
         Counter counter = new Counter(reader);
         
-        assertEquals(51, counter.getNumberCharacters());
+        assertEquals(52, counter.getNumberCharacters());
         assertEquals(3, counter.getNumberLines());
-        assertEquals(10, counter.getNumberWords());
+        assertEquals(11, counter.getNumberWords());
     }
-   
-
 }
 
